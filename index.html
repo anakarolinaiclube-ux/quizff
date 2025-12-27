@@ -20,7 +20,7 @@
             --wine-deep: #630b18; 
             --dark-text: #1a1a1a;
             --light-text: #555555;
-            --gold: #f4c430;
+            --silver: #C0C0C0; /* Nova variável Prata */
             --bg-offwhite: #fcfcfc;
             --bg-blush: #fff5f6;
             --font-serif: 'Playfair Display', serif;
@@ -86,30 +86,30 @@
             line-height: 1.8;
         }
 
-        /* ANIMAÇÃO ESPECÍFICA PARA "PODER" */
+        /* ANIMAÇÃO ESPECÍFICA PARA "PODER" (Ajustada para Prata) */
         .word-power {
             display: inline-block;
             font-weight: 800;
-            color: var(--gold); /* Dourado base */
+            color: var(--silver); 
             position: relative;
-            animation: golden-glow 3s infinite ease-in-out;
+            animation: silver-glow 3s infinite ease-in-out;
             letter-spacing: 0.5px;
         }
 
-        @keyframes golden-glow {
+        @keyframes silver-glow {
             0% { 
-                color: #d4a017; /* Dourado escuro */
-                text-shadow: 0 0 2px rgba(212, 160, 23, 0.1);
+                color: #A0A0A0; /* Cinza escuro */
+                text-shadow: 0 0 2px rgba(160, 160, 160, 0.1);
                 transform: scale(1);
             }
             50% { 
-                color: #f4c430; /* Dourado brilhante */
-                text-shadow: 0 0 10px rgba(244, 196, 48, 0.5);
+                color: #E0E0E0; /* Prata brilhante */
+                text-shadow: 0 0 10px rgba(192, 192, 192, 0.6);
                 transform: scale(1.05); /* Expansão sutil */
             }
             100% { 
-                color: #d4a017; 
-                text-shadow: 0 0 2px rgba(212, 160, 23, 0.1);
+                color: #A0A0A0; 
+                text-shadow: 0 0 2px rgba(160, 160, 160, 0.1);
                 transform: scale(1);
             }
         }
@@ -274,7 +274,6 @@
             
             <h1>Você é a caça ou a caçadora?</h1>
             
-            <!-- INTRO ATUALIZADA -->
             <p class="intro">
                 Responda com honestidade brutal.<br>
                 Descubra se sua presença está comunicando <span class="word-power">poder</span> ou pedindo validação sem perceber.
@@ -313,7 +312,7 @@
                 <p>Você pode virar esse jogo hoje. Chega de ser a opção conveniente. Torne-se o vício dele.</p>
             </div>
 
-            <a href="https://SEU-LINK-DA-PAGINA-DE-VENDAS.com" class="btn-cta">QUERO DESPERTAR MINHA FEMME FATALE</a>
+            <a href="https://femmefatale.vercel.app/" class="btn-cta">QUERO DESPERTAR MINHA FEMME FATALE</a>
         </div>
 
     </div>
