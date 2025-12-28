@@ -185,50 +185,53 @@
             color: #444;
         }
         
-        /* ANIMAÇÃO DO QUEBRA-CABEÇA */
-        .puzzle-disconnect {
+        /* ANIMAÇÃO DA COROA DERRETENDO */
+        .melting-crown-container {
+            position: relative;
+            height: 70px; /* Espaço para a animação */
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 25px 0;
-            gap: 2px;
-            opacity: 0.7;
-        }
-        
-        .puzzle-piece {
-            font-size: 1.8rem;
-            color: #888;
-            transition: all 1s ease;
         }
 
-        .p-left {
-            animation: disconnect-left 4s infinite ease-in-out;
+        .crown-icon {
+            font-size: 2.5rem;
             color: var(--wine-deep);
-        }
-        
-        .p-right {
-            animation: disconnect-right 4s infinite ease-in-out;
-            transform: rotate(180deg);
-        }
-
-        @keyframes disconnect-left {
-            0%, 100% { transform: translateX(0); opacity: 1; }
-            50% { transform: translateX(-10px) rotate(-5deg); opacity: 0.5; }
-        }
-        
-        @keyframes disconnect-right {
-            0%, 100% { transform: translateX(0) rotate(180deg); opacity: 1; }
-            50% { transform: translateX(10px) rotate(185deg); opacity: 0.5; }
+            position: relative;
+            z-index: 2;
+            /* A coroa tomba e perde o foco, como se estivesse caindo/derretendo */
+            animation: crown-slip 4s infinite ease-in-out;
         }
 
-        .result-highlight {
-            background: var(--bg-blush);
-            padding: 15px;
-            border-left: 3px solid var(--wine-deep);
-            margin: 20px 0;
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-align: left;
+        /* Gotas que simulam o derretimento */
+        .crown-drip {
+            position: absolute;
+            background-color: var(--wine-deep);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            top: 45%;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        /* Configuração das gotas caindo em tempos diferentes */
+        .d1 { left: 46%; animation: melt-drop 3s infinite ease-in 0.2s; }
+        .d2 { left: 50%; animation: melt-drop 3s infinite ease-in 1.2s; }
+        .d3 { left: 54%; animation: melt-drop 3s infinite ease-in 0.7s; }
+
+        /* Animação da coroa tombando */
+        @keyframes crown-slip {
+            0%, 100% { transform: rotate(0deg) translateY(0); filter: blur(0); opacity: 1; }
+            50% { transform: rotate(15deg) translateY(5px); filter: blur(1px); opacity: 0.7; }
+        }
+
+        /* Animação das gotas caindo e esticando */
+        @keyframes melt-drop {
+            0% { top: 45%; height: 5px; opacity: 1; transform: scale(1); }
+            80% { opacity: 0.8; }
+            100% { top: 100%; height: 15px; opacity: 0; transform: scale(0.5); }
         }
 
         /* BOTÃO CTA */
@@ -296,10 +299,13 @@
                 <p><strong>Você não está seduzindo, está implorando por validação.</strong></p>
                 <p>Suas respostas mostram que você entregou todo o seu poder. Você espera ser escolhida em vez de escolher.</p>
                 
-                <!-- Elemento de Quebra-Cabeça -->
-                <div class="puzzle-disconnect">
-                    <i class="fas fa-puzzle-piece puzzle-piece p-left"></i>
-                    <i class="fas fa-puzzle-piece puzzle-piece p-right"></i>
+                <!-- Elemento de Coroa Derretendo -->
+                <div class="melting-crown-container">
+                    <i class="fas fa-crown crown-icon"></i>
+                    <!-- Gotas -->
+                    <div class="crown-drip d1"></div>
+                    <div class="crown-drip d2"></div>
+                    <div class="crown-drip d3"></div>
                 </div>
 
                 <p>Sua energia atual é previsível, segura demais e, francamente, entediante. Falta o mistério e a audácia que fazem um homem perder o sono pensando em você.</p>
